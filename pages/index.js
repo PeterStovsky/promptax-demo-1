@@ -34,7 +34,7 @@ export default function Home() {
         const text =
           data.responses?.[0]?.fullTextAnnotation?.text || "Brak danych";
         setOcrResult(text);
-        console.log("Tekst z OCR:", text);
+        console.log("\n--- OCR WYNIK ---\n", text);
       };
       reader.readAsDataURL(selectedFile);
     }
@@ -42,7 +42,7 @@ export default function Home() {
 
   const handleSubmit = () => {
     if (!file) return alert("Wybierz plik PDF z fakturą.");
-    alert("[DEMO] Dane z faktury przesłane do OCR. Sprawdź konsolę przeglądarki.");
+    alert("[DEMO] Odczytano dane z faktury. Zobacz pełny tekst poniżej.");
   };
 
   return (
@@ -61,8 +61,8 @@ export default function Home() {
       <button onClick={handleSubmit}>Zatwierdź i przetwórz fakturę</button>
 
       {ocrResult && (
-        <div style={{ marginTop: "2rem", whiteSpace: "pre-wrap", background: "#f9f9f9", padding: "1rem" }}>
-          <h3>📄 Wynik OCR (surowy tekst):</h3>
+        <div style={{ marginTop: "2rem", whiteSpace: "pre-wrap", background: "#f9f9f9", padding: "1rem", border: "1px solid #ccc" }}>
+          <h3>📄 Wynik OCR (tekst z faktury):</h3>
           {ocrResult}
         </div>
       )}
