@@ -15,7 +15,7 @@ export default function Home() {
         const base64Data = reader.result.split(",")[1];
 
         const response = await fetch(
-          "https://vision.googleapis.com/v1/images:annotate?key=AIzaSyCiUI4HZ-tH0D6bEK-6h9yMVbtPjDnLnZc",
+          "https://vision.googleapis.com/v1/images:annotate?key=
           {
             method: "POST",
             headers: { "Content-Type": "application/json" },
